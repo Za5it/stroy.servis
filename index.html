@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSM Plaster Systems - Штукатурные станции PSM 30</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF6F00; /* Яркий оранжевый из логотипа PSM */
+            --dark-gray: #333;
+            --light-gray: #f4f4f4;
+            --white: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light-gray);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Для мобильных */
+            gap: 15px; /* Промежуток между элементами */
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px; /* Увеличена высота для логотипа "СТРОЙ СЕРВИС" */
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-orange); /* Цвет текста "PSM Plaster Systems" рядом с логотипом */
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-orange);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-orange);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap; /* Предотвращает перенос текста на кнопке */
+        }
+
+        .btn:hover {
+            background-color: #e66000; /* Darker orange */
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--light-gray);
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)); /* Overlay for text readability */
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.2em;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-orange);
+        }
+
+        .features-grid, .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5em;
+            color: var(--primary-orange);
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 1.1em;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-item {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-item span {
+            display: block;
+            font-weight: 600;
+            text-align: right;
+            color: var(--primary-orange);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .contact-info-block p {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .contact-info-block a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .map-container {
+            margin-top: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--primary-orange);
+            text-decoration: none;
+        }
+
+        .whatsapp-fixed-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366; /* WhatsApp green */
+            color: var(--white);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-fixed-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Basic responsiveness */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            .whatsapp-fixed-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <img src="images/Photoroom-20241127_185712.png" alt="СТРОЙ СЕРВИС Logo" style="height: 50px;">
+                <span>PSM Plaster Systems</span>
+            </a>
+            <div class="contact-info">
+                <a href="tel:+79285260080">8 (928) 526-00-80</a>
+                <a href="https://wa.me/79285260080" class="btn" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height: 1em; vertical-align: middle; margin-right: 5px;">
+                    Написать в WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="images/EXIJJDAXIC142024141052_IMG-20240102-WA0034.jpg" alt="Штукатурная станция PSM 30" class="hero-bg">
+            <div class="hero-content">
+                <h1>Штукатурные станции PSM 30 - Ваша эффективность на стройке!</h1>
+                <p>Надежное решение для механизированной штукатурки. Высокая производительность и безупречное качество для ваших проектов.</p>
+                <a href="#about" class="btn">Узнать подробнее</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>PSM 30: Преимущества, которые вы оцените</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Высокая производительность</h3>
+                        <p>Обеспечивает быструю и равномерную подачу раствора, значительно ускоряя процесс штукатурки.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Простота в эксплуатации</h3>
+                        <p>Интуитивно понятное управление и легкое обслуживание даже для новичков.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Надежность и долговечность</h3>
+                        <p>Изготовлена из высококачественных материалов, гарантирующих долгий срок службы.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Экономия ресурсов</h3>
+                        <p>Минимизирует расход материалов и трудозатраты, повышая рентабельность.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                <h2>Фотогалерея PSM 30</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/CIBXVPSQTF142024141052_IMG-20240102-WA0033.jpg" alt="PSM 30 Вид спереди">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/EXIJJDAXIC142024141052_IMG-20240102-WA0034.jpg" alt="PSM 30 Вид сбоку">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/QOVMDJXITN14202414111_IMG-20240102-WA0053.jpg" alt="Панель управления PSM 30">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/FPZJCSYAZS142024141057_IMG-20240102-WA0045.jpg" alt="Компрессор PSM 30">
+                    </div>
+                     <div class="gallery-item">
+                        <img src="images/IMG-20240102-WA0035.jpg" alt="PSM 30 другой ракурс">
+                    </div>
+                     <div class="gallery-item">
+                        <img src="images/KBAFUHHYEK142024141055_IMG-20240102-WA0040.jpg" alt="Двигатель PSM 30">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+                <h2>Отзывы наших клиентов</h2>
+                <div class="testimonial-item">
+                    <p>"PSM 30 значительно ускорила нашу работу и улучшила качество штукатурки. Очень довольны этой инвестицией!"</p>
+                    <span>- Азамат, ООО "СтройДом"</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Простая в освоении и очень надежная машина. Для профессионального использования - это то, что нужно."</p>
+                    <span>- Магомед, Частный подрядчик</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Свяжитесь с нами</h2>
+                <div class="contact-form">
+                    <p>Заполните форму, и наш менеджер свяжется с вами в ближайшее время!</p>
+                    <form action="#" method="POST">
+                        <label for="name">Ваше имя:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="phone">Телефон:</label>
+                        <input type="tel" id="phone" name="phone" required>
+
+                        <label for="email">Email (необязательно):</label>
+                        <input type="email" id="email" name="email">
+
+                        <label for="message">Сообщение:</label>
+                        <textarea id="message" name="message" placeholder="Например: Хочу узнать цену на PSM 30"></textarea>
+
+                        <button type="submit" class="btn">Отправить заявку</button>
+                    </form>
+                </div>
+                <div class="contact-info-block">
+                    <h3>Или свяжитесь с нами напрямую:</h3>
+                    <p><strong>Телефон:</strong> <a href="tel:+79285260080">8 (928) 526-00-80</a></p>
+                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/79285260080" target="_blank">8 (928) 526-00-80</a></p>
+                    <p><strong>Адрес:</strong> г. Хасавюрт, ул. Бамовская, 93</p>
+                </div>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2897.608304919572!2d46.59002237699309!3d43.277028171120016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4051a8a2d123398f%3A0x6e7e008a0e8d0e7!2z0YPQu9C40YbQsCwg0YHQtdC70YvQsCDQs9C-0YDQuNC-0YDQu9Cw0YLQsCA5Mywg0KXQsNC70LDQvNC40Y8!5e0!3m2!1sru!2sru!4v1704200000000!5m2!1sru!2sru" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 PSM Plaster Systems. Все права защищены.</p>
+            <p><a href="#">Политика конфиденциальности</a></p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/79285260080" class="whatsapp-fixed-btn" target="_blank" title="Написать в WhatsApp">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12c0 2.544.912 4.908 2.518 6.697L3 22l3.303-1.518C8.092 21.088 10.456 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm3.606 14.927c-.204.2-.42.34-.633.454-.213.114-.43.197-.657.243-.227.046-.45.068-.67.068-.22 0-.44-.022-.657-.068-.217-.046-.434-.129-.643-.243-.209-.114-.417-.254-.62-.454-.408-.408-.737-.897-.987-1.465-.25-.568-.376-1.22-.376-1.954 0-.734.126-1.386.376-1.954.25-.568.579-1.057.987-1.465.408-.408.897-.737 1.465-.987.568-.25 1.22-.376 1.954-.376.734 0 1.386.126 1.954.376.568.25 1.057.579 1.465.987.204.204.34.42.454.633.114.213.197.43.243.657.046.227.068.45.068.67 0 .22-.022.44-.068.657-.046.217-.129.434-.243.643-.114.209-.254.417-.454.62-.408.408-.897.737-1.465.987-.568.25-1.22.376-1.954.376-.734 0-1.386-.126-1.954-.376zM12 5.5c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5 6.5-2.91 6.5-6.5-2.91-6.5-6.5-6.5zM12 18c-.82 0-1.61-.194-2.316-.54l-3.684 1.684.54-3.684C6.194 13.61 6 12.82 6 12c0-3.309 2.691-6 6-6s6 2.691 6 6-2.691 6-6 6z"/></svg>
+    </a>
+
+</body>
+</html>
